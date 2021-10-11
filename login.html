@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Todo app</title>
+</head>
+
+<body>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-6 offset-md-3 col-sm-12 center'>
+
+                <p>Please enter a username:</p>
+                <input type="text" id="username" class="form-control" placeholder="username">
+                <br>
+                <input type="password" id="password" class="form-control" placeholder="password">
+                <button classs="btn btn-danger" id="submit">Sign Up</button>
+                <p style="color:greenyellow" id="signup-succsess"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+
+    <script>
+
+        var socket= io.connect('http://localhost:4000');
+
+        var username = document.getElementById('username');
+        var username = document.getElementById('password');
+        var username = document.getElementById('submit');
+
+      if(socket !== undefined){
+        submit.addeventlistener('click', function(e){
+        console.log("submit button was clicked");
+
+        socket.emit('submit', {
+            name: username.value,
+            password: password.value
+        });
+        });
+      }
+
+        </script>
+    </body>
+
+</html>
